@@ -1,0 +1,81 @@
+<h3 class="text-warning">View Task</h3>
+<hr>
+<div class="row">
+    <div class="col-xl-12">
+  <ul class="nav nav-pills ">
+    <li class="nav-item">
+      <h4><a routerLink="/add-task" class="text-secondary" >Add Task</a></h4>
+    </li>
+    <li class="nav-item" style="padding-left:21px">
+      <h4><a routerLink="/view-task" routerLinkActive="active" >View Task</a></h4>
+    </li>
+    </ul>
+  </div>
+  
+  </div>
+
+<div class="row">
+    
+  <div class="col-md-6">
+      <label class="control-label">Task:</label>   
+      <div class="input-group"><input id="TaskName" name="TaskName" #TaskName (keyup)="TaskFilter(TaskName.value)" placeholder="Task Details" class="form-control"   type="text"></div>
+  </div>
+  <div class="col-md-6">
+      <label class="control-label">Parent Task:</label>   
+      <div class="input-group"><input id="ParentTaskName" #ParentTaskName (keyup)="ParentTaskFilter(ParentTaskName.value)" name="ParentTaskName" placeholder="Parent Task Details" class="form-control"  value="" type="number"></div>
+  </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <label class="control-label">Priority From:</label>   
+        <div class="input-group"><input id="PriorityFrom" name="PriorityFrom" #PriorityFrom (keyup)="PriorityTaskFilter(PriorityFrom.value)" placeholder="Priority From" class="form-control"  value="" type="number"></div>
+    </div>
+    <div class="col-md-3">
+        <label class="control-label">Priority To:</label>   
+        <div class="input-group"><input id="PriorityTo" name="PriorityTo" #PriorityTo (keyup)="PriorityTaskFilter(PriorityTo.value)"  placeholder="Priority To" class="form-control"  value="" type="number"></div>
+    </div>
+    <div class="col-md-3">
+        <label class="control-label">Start Date:</label>   
+        <div class="input-group"><input id="Startdate" name="Startdate" #Startdate (blur)="StartdateTaskFilter(Startdate.value)"  class="form-control"  value="" type="date"></div>
+    </div>
+    <div class="col-md-3">
+        <label class="control-label">End Date:</label>   
+        <div class="input-group"><input id="Enddate" name="Enddate" #Enddate (blur)="EnddateTaskFilter(Enddate.value)"  class="form-control"  value="" type="date"></div>
+    </div>
+    
+  </div>
+  <br>  
+
+  <table class="table" >
+      <thead>
+          <tr>
+            <th scope="col">Task Id</th>
+            <th scope="col">Task</th>
+            <th scope="col">Parent Task</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th></th>     
+            <th></th>
+            <th></th>
+            <th>IsTaskEnd</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let item of list ; trackBy: trackTask" >         
+              <td>{{item.TaskID}}</td>
+              <td>{{item.Task1}}</td>
+              <td>{{item.ParentId}}</td>
+              <td>{{item.Priority}}</td>
+              <td>{{item.StartDate |date:'MM-dd-yyyy'}}</td>
+              <td>{{item.EndDate | date:'MM-dd-yyyy' }}</td>
+             
+              <td style="padding-left:0;padding-right:0;"><a routerLink="/update-task/{{item.TaskID}}"><button class="btn btn-secondary" [disabled]=" (item.IsTaskEended=='1')"  >Edit</button></a></td> 
+   
+              <td style="padding-left:0;padding-right:0"><button [disabled]=" (item.IsTaskEended =='1')" (click)="EndTaskFlagchange(item)"  class="btn btn-warning">EndTask</button></td>             
+              <td style="padding-left:0;padding-right:0"><button [disabled]=" (item.IsTaskEended =='1')" (click)="DeleteTask(item.TaskID)" class="btn btn-danger">Delete</button></td>
+              <td>{{(item.IsTaskEended=='1')? 'Yes':'No'}}</td>
+            </tr>
+          </tbody>
+        </table>

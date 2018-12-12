@@ -11,7 +11,7 @@ import { TaskEntity } from '../Modules/task-entity';
   providedIn: 'root'
 })
 export class SharedService {
-private _ApiUrl ="http://localhost:59461/api/Tasks";
+private _ApiUrl ="http://localhost/TaskManagerAPI/api/Tasks";
   constructor(private _http:HttpClient) {
 
    }

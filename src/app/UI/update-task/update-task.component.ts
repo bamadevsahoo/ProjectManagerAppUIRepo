@@ -6,7 +6,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @NgModule({
-  imports:[BrowserModule,FormsModule]
+  imports:[BrowserModule,FormsModule],
+  providers:[ActivatedRoute]
 })
 @Component({
   selector: 'app-update-task',
@@ -14,16 +15,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./update-task.component.scss']
 })
 export class UpdateTaskComponent implements OnInit {
-  private updateResult: any;
-  private TaskID :number;
-  private Task1:string;
-  private ParentId :number;
-  private StartDate :string;
-  private EndDate: string;
-  private Priority : number;
+  public updateResult: any;
+  public TaskID :number;
+  public Task1:string;
+  public ParentId :number;
+  public StartDate :string;
+  public EndDate: string;
+  public Priority : number;
   
-  private IsformValid :boolean=true;
-  private IsUpdatedSuccessFully:boolean=false;
+  public IsformValid :boolean=true;
+  public IsUpdatedSuccessFully:boolean=false;
   
    
   constructor(private _service:SharedService, private route: ActivatedRoute){

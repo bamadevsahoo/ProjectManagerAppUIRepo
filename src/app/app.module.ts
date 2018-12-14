@@ -9,6 +9,7 @@ import { ViewTaskComponent } from './UI/view-task/view-task.component';
 import { UpdateTaskComponent } from './UI/update-task/update-task.component';
 import { SharedService } from './Services/shared.service';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
+
 import { DatePipe } from '@angular/common'
 
 @NgModule({
@@ -25,7 +26,7 @@ import { DatePipe } from '@angular/common'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SharedService, HttpClientModule,,HttpClient,DatePipe],
+  providers: [SharedService, HttpClientModule,HttpClient,DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -4,9 +4,11 @@ import { TaskEntity } from 'src/app/Modules/task-entity';
 import {FormsModule,NgForm,ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { stringify } from '@angular/core/src/util';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:[BrowserModule,FormsModule,ReactiveFormsModule],
+  imports:[BrowserModule,HttpClientModule,FormsModule,ReactiveFormsModule],
+  providers: [ HttpClientModule],
   exports:[FormsModule]
 })
 @Component({
@@ -17,14 +19,14 @@ import { stringify } from '@angular/core/src/util';
 
 export class AddTaskComponent implements OnInit {
 
-  private insertResult: any;
-  private Task1:string;
-  private ParentId :number;
-  private StartDate :string;
-  private EndDate: string;
-  private Priority : number;
-  private IsformValid :boolean=true;
-  private IsAddedSuccessFully:boolean=false;
+  public insertResult: any;
+  public Task1:string;
+  public ParentId :number;
+  public StartDate :string;
+  public EndDate: string;
+  public Priority : number;
+  public IsformValid :boolean=true;
+  public IsAddedSuccessFully:boolean=false;
   constructor(private _service:SharedService)  { }
 
   ngOnInit() {

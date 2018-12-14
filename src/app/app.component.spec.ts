@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'TaskMangerApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('TaskMangerApp');
+    expect(app.title).toEqual('Task Manger App');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render title in a h3 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to TaskMangerApp!');
+    expect(compiled.querySelector('h3').textContent).toContain('Welcome to Task Manger App!');
   });
 });

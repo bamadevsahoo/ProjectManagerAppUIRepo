@@ -10,21 +10,29 @@ import { UpdateTaskComponent } from './UI/update-task/update-task.component';
 import { SharedService } from './Services/shared.service';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { AddUsersComponent } from './UI/add-users/add-users.component';
+import { AddProjectsComponent } from './UI/add-projects/add-projects.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTaskComponent,
     ViewTaskComponent,
-    UpdateTaskComponent
+    UpdateTaskComponent,
+    AddUsersComponent,
+    AddProjectsComponent
+    
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,  
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [SharedService, HttpClientModule,HttpClient,DatePipe],
   bootstrap: [AppComponent],

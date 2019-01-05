@@ -1,10 +1,12 @@
 export class TaskEntity {
-    TaskID:number;
+    TaskId:number;
     ParentId :number;
-    Task1:string;
+    ProjectId:number;
+    TaskDesc:string;
     StartDate :string;
     EndDate: string;
     Priority : number;
-    IsTaskEended:string;
+    TaskStatus:string;
+    UserId:number;
 }
 
